@@ -1,0 +1,37 @@
+{
+  "name": "semester-student-planner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env server/index.js",
+    "build": "vite build",
+    "start": "NODE_ENV=production node --env-file-if-exists=.env server/index.js",
+    "db:local": "node scripts/local-postgres.js start",
+    "db:stop": "node scripts/local-postgres.js stop",
+    "db:migrate": "node --env-file-if-exists=.env scripts/migrate.js",
+    "test": "node --test tests/validation.test.js tests/password.test.js",
+    "test:api": "node --env-file-if-exists=.env --test tests/api.test.js",
+    "test:e2e": "playwright test",
+    "format": "prettier --write src server scripts tests *.js *.json *.html *.md docs/*.md"
+  },
+  "dependencies": {
+    "@fontsource/golos-text": "5.3.0",
+    "bootstrap": "5.3.8",
+    "connect-pg-simple": "10.0.0",
+    "express": "5.3.0",
+    "express-rate-limit": "8.7.1",
+    "express-session": "1.19.0",
+    "helmet": "8.3.0",
+    "lucide": "1.62.0",
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10",
+    "vite": "8.3.5"
+  }
+}
